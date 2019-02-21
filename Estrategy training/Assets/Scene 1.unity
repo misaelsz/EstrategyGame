@@ -142,22 +142,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1419444431}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &211856873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211856871}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3697ca0238c8b46b70da3c3876c0c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characher: {fileID: 211856872}
-  speed: 5
-  currentDistance: 0
-  previousDistace: 0
 --- !u!54 &211856875
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -186,9 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d45195ea2d092446a65a0d974add169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touch2Watch: 64
-  speed: 1
-  maxDist: 2
+  speed: 5
+  maxDist: 0.5
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   directionChosen: 0

@@ -7,41 +7,57 @@ public class MovimentsCharacter : MonoBehaviour
     private Vector3 finger, directionToLook;
     private Transform myTrans, camTrans;
     public Vector2 startPos, direction;
-    public bool directionChosen;
+    public bool directionChosen, insideButton;
     void Start()
     {
         myTrans = this.transform;
         camTrans = Camera.main.transform;
     }
 
-    
+
 
     void Update()
     {
-        // Track a single touch as a direction control.
-        if (Input.touchCount == 1)
+        if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-
-            // Handle finger movements based on touch phase.
-            switch (touch.phase)
+            
+            Vector2 positionFinger = Camera.main.WorldToScreenPoint(Input.GetTouch(0).position);
+            
+            // Track a single touch as a direction control.
+            if (Input.touchCount == 1)
             {
-                // Record initial touch position.
-                case TouchPhase.Began:
-                    startPos = touch.position;
-                    directionChosen = false;
-                    break;
+                Touch touch = Input.GetTouch(0);
+                if (touch.position.x < 350f && touch.position.y < 350f)
+                {
+                    insideButton = true;
+                }
+                else
+                {
+                    insideButton = false;
+                    // Handle finger movements based on touch phase.
+                    switch (touch.phase)
+                    {
+                        // Record initial touch position.
+                        case TouchPhase.Began:
+                            startPos = touch.position;
+                            directionChosen = false;
+                            break;
 
-                // Report that a direction has been chosen when the finger is lifted.
-                case TouchPhase.Ended:
-                    directionChosen = true;
-                    break;
+                        // Report that a direction has been chosen when the finger is lifted.
+                        case TouchPhase.Ended:
+                            directionChosen = true;
+                            break;
+                    }
+                }
             }
+
         }
-        if (directionChosen)
+        if (directionChosen && !insideButton)
         {
             LookAtFinger();
         }
+
+
     }
     public void Move(Vector3 finger, Transform characher)
     {
@@ -52,9 +68,11 @@ public class MovimentsCharacter : MonoBehaviour
     void LookAtFinger()
     {
         #region GetTouchPositionToVector3
-        // create ray from the camera and passing through the touch position:
-        if (Input.touchCount == 1)
+        
+        if (Input.touchCount > 0)
         {
+            Vector2 positionFinger = Camera.main.WorldToScreenPoint(Input.GetTouch(0).position);
+
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             // create a logical plane at this object's position
             // and perpendicular to world Y:
@@ -70,6 +88,7 @@ public class MovimentsCharacter : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(directionToLook);
                 #endregion
             }
+
         }
         //move towards finger if not too close
         Move(finger, myTrans);

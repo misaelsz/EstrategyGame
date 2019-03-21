@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 47efc0206faf8ec43afc07b58608dda6, type: 2}
 --- !u!1 &211856871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100138, guid: f7284ac57c93f764fbe5d06efbbd1117,
@@ -124,22 +124,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1419444431}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &211856875
-Rigidbody:
+--- !u!195 &211856874
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211856871}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &211856876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +163,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   directionChosen: 0
+  insideButton: 0
 --- !u!1001 &262378158
 PrefabInstance:
   m_ObjectHideFlags: 0

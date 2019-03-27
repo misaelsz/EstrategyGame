@@ -13,7 +13,6 @@ public class CameraControlAndroid : MonoBehaviour
 
         if (moveVector != Vector3.zero)
         {
-          //  transform.rotation = Quaternion.LookRotation(moveVector);
             transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
         }
     }

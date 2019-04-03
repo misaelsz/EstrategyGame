@@ -10,6 +10,8 @@ namespace Assets.Scripts.AndroidProject.Model
     {
         public Projector projector;
         private bool _isSelected;
+        public bool IsOrdened = false;
+        public Vector3 positionOrdened;
 
         public bool IsSelected
         {
@@ -24,7 +26,6 @@ namespace Assets.Scripts.AndroidProject.Model
                 {
                     projector.enabled = false;
                 }
-                print(projector.enabled);
                 _isSelected = value;
             }
         }
